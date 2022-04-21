@@ -1,0 +1,6 @@
+{% if button %}
+  <a class="{{class}} {{txt}}" target="{{button.target}}" href="{{button.url}}">
+    <span class="{{class}}--text">{{button.title}}</span>
+    <span class="{{class}}--icon">{{the_svg('arrow')}}</span>
+  </a>
+{% endif %}

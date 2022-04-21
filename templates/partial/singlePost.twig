@@ -1,0 +1,11 @@
+<a class="singlePost" href="{{post.link}}">
+  <div class="singlePost--img">
+    <img src="{{post.get_thumbnail.src('medium_large')}}" alt="{{post.title}}">
+  </div>
+
+  <div class="singlePost__content">
+    <p class="singlePost__content--date txt-14">{{the_svg('calendar')}} {{ post.date('d.m.Y') }}</p>
+    <h3 class="singlePost__content--title tit-26">{{ post.title }}</h3>
+    <p class="singlePost__content--text txt-18">{{post.short_description}}</p>
+  </div>
+</a>

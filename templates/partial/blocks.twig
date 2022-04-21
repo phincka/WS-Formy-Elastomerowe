@@ -1,0 +1,140 @@
+{% if blocks %}
+  {% for item in blocks %}
+    {% if item.acf_fc_layout == 'wysiwyg' %}
+      <div class="block">
+        <div class="block--wysiwyg">
+          {{item.block}}
+        </div>
+      </div>
+    {% elseif item.acf_fc_layout  == 'gallery' %}
+      <div class="block">
+        <div class="block__slider swiper blockGallery">
+          <div class="swiper-wrapper gallery">
+            {% for single in item.block %}
+              <a data-lbxp class="block__slider__slide swiper-slide" href="{{single.url}}">
+                <img class="block__slider__slide--img" src="{{single.url}}" alt="{{single.alt}}">
+                <p class="block__slider__slide--text txt-18">{{single.description}}</p>
+              </a>
+            {% endfor %}
+          </div>
+
+          <button class="prev">{{the_svg('arrow_right')}}</button>
+          <button class="next">{{the_svg('arrow_right')}}</button>
+        </div>
+      </div>
+    {% elseif item.acf_fc_layout  == 'margin' %}
+      <div class="block">
+        <div class="block--margin" style="height: {{item.block / 10}}rem;"></div>
+      </div>
+    {% elseif item.acf_fc_layout  == 'files' %}
+      <div class="block">
+        {% for single in item.block %}
+          {% set mb = single.fil.filesize / 1024 %}
+          
+          <a class="block__file" href="{{single.fil.url}}" target="blank">
+            {% if single.fil.subtype == 'pdf' %}
+              <img class="block__file--img" src="{{asset('pdf.svg')}}" alt="pdf">
+            {% elseif single.fil.subtype == 'png' %}
+              <img class="block__file--img" src="{{asset('png.svg')}}" alt="png">
+            {% else %}
+              <img class="block__file--img" src="{{asset('zip.svg')}}" alt="zip">
+            {% endif %}
+
+            <div class="block__file__info">
+              <h4 class="block__file__info--title txt-18"><b>{{single.fil.title}}</b></h4>
+              <p class="block__file__info--text txt-16">
+                {{single.fil.subtype}}
+                <span>({{mb|number_format(2) }} Mb)</span>
+              </p>
+            </div>
+
+            <button class="block__file--button footer__top__single--button">
+              <span class="txt-16">{{fn('pll__', 'download')}}</span>
+              {{the_svg('arrow_right')}}
+            </button>
+          </a>
+        {% endfor %}
+      </div>
+    {% elseif item.acf_fc_layout  == 'job_offers' %}
+      <div class="block">
+        {% for single in item.block %}
+          <a class="block__file" href="#">
+            <img class="block__file--img" src="{{asset('job.svg')}}" alt="job">
+
+            <div class="block__file__info">
+              <h4 class="block__file__info--title txt-18"><b>{{single.title}}</b></h4>
+              <p class="block__file__info--text txt-16"><span>{{single.text}}</span></p>
+            </div>
+
+            <button class="block__file--button footer__top__single--button">
+              <span class="txt-16">{{fn('pll__', 'apply')}}</span>
+              {{the_svg('arrow_right')}}
+            </button>
+          </a>
+        {% endfor %}
+      </div>
+
+    {% elseif item.acf_fc_layout  == 'contact_forms' %}
+      <div class="block">
+        {% include "/templates/partial/contactForms.twig" with {contactForms: item.block} %}
+      </div>
+    {% elseif item.acf_fc_layout  == 'table' %}
+      <div class="block">
+        <div class="block__table">
+          {% for rows in item.block %}
+            <div class="block__table__row" style="grid-template-columns: repeat({{rows.row|length}}, 1fr);">
+              {% for columns in rows.row %}
+                <div class="block__table__row__column">
+                  <p class="block__table__row__column--text txt-16">{{columns.column}}</p>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% elseif item.acf_fc_layout  == 'advantages' %}
+      <div class="block">
+        <div class="block__advantages">
+          {% for adv in item.block %}
+            <div class="block__advantages__single">
+              <img class="block__advantages__single--icon" src="{{adv.icon.url}}" alt="{{adv.icon.alt}}">
+
+              <h3 class="block__advantages__single--title txt-22">{{adv.title}}</h3>
+              <p class="block__advantages__single--text txt-16">{{adv.text}}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% elseif item.acf_fc_layout  == 'iabn' %}
+      <div class="block">
+        <div class="block__iban">
+          {% set iban = item.block %}
+
+          <div class="block__iban__top">
+            <img class="block__iban__top--icon" src="{{iban.icon.url}}" alt="{{iban.icon.alt}}">
+            <h3 class="block__iban__top--title tit-26">{{iban.title}}</h3>
+          </div>
+
+          <div class="block__iban__bottom">
+            <div class="block__iban__content">
+              <p class="block__iban__content--text txt-22">{{iban.text}}</p>
+              <p class="block__iban__content--text2 txt-22">{{iban.text_2}}</p>
+            </div>
+
+            <ul class="block__iban__list">
+              {% for item in iban.ibans %}
+                <li class="block__iban__list__single txt-22">
+                  <p class="block__iban__list__single--title"><b>{{item.title}}</b></p>
+                  <p class="block__iban__list__single--value copyElement">
+                    <span class="copyValue">{{item.value}}</span>
+                    <img src="{{asset('copy.svg')}}" alt="copy">
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %} 

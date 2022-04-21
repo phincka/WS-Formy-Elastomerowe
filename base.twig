@@ -1,0 +1,25 @@
+{% block html_head_container %}
+
+{% include 'templates/views/0_head/html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body id="top" class="{{body_class}} preload" data-template="base.twig">
+		{% block menu %}
+			{% include 'templates/views/1_header/header.twig' with {'items': menu.get_items} %}
+		{% endblock %}
+
+		<main class="main">
+      {% block content %}
+        Sorry, no content
+      {% endblock %}
+    </main>
+		
+		{% block footer %}
+      {% include 'templates/views/2_footer/footer.twig' %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

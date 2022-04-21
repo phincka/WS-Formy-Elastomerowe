@@ -1,0 +1,20 @@
+.breadcrumbs{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  color: var(--grey);
+  font-weight: 400;
+    .stepIcon{
+      margin: 0 .2rem;
+    }
+    a{
+      transition: .2s;
+        &:hover{
+          color: var(--pcolor);
+        }
+    }
+    .current{
+      text-decoration: underline;
+    }
+}

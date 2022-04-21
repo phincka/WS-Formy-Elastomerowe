@@ -1,0 +1,17 @@
+{# args:
+    img
+ #}
+{% apply spaceless %}
+{% block image %}
+	<picture class="{{ class }}">
+		<source
+		media="(min-width: 1366px)" srcset="{{ img.sizes.fullhd }}">
+		{# <source media="(min-width: 992px)" srcset="{{ img.sizes.large }}"> #}
+		<source
+		media="(min-width: 641px)" srcset="{{ img.sizes.large }}">
+		{# <source media="(min-width: 400px)" srcset="{{ img.sizes.medium_large }}"> #}
+		<source srcset="{{ img.sizes.medium_large }}">
+		 <img loading="lazy" {{ data }} src="{{ img.url }}" alt="{{ img.alt|e('html_attr') }}">
+	</picture>
+{% endblock image %}
+{% endapply %}

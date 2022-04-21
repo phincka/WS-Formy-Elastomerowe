@@ -1,0 +1,36 @@
+.cookies{
+  @include colStart;
+
+  width: 36rem;
+  padding: 1.6rem;
+  background-color: var(--white);
+
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+
+  box-shadow: 0 1rem 3.2rem -1rem var(--grey2);
+
+  display: none;
+    &--title{
+      @include fontStyle(#0F181D, 2rem, 700);
+
+    }
+    &--text{
+      @include fontStyle(#687F8C, 1.6rem, 400);
+      line-height: 2rem;
+
+      margin-top: 1rem;
+      margin-bottom: 2.4rem;
+    }
+    .btn-1{
+      padding: .8rem 2.4rem;
+      margin-left: auto;
+        &--text{
+          font-weight: 700;
+          font-size: 1.4rem;
+          color: #0F181D;
+          text-transform: uppercase;
+        }
+    }
+}

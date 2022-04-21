@@ -1,0 +1,48 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" with {title: acf.ph_title} %}
+
+
+<section class="s1_benefits">
+  <nav class="s1_benefits__nav js-panel-toggle">
+    {% for single in acf.s1_repeat %}
+      {% if loop.first %}
+        {% set activeClass = 'panel-toggle--active' %}
+      {% else %}
+        {% set activeClass = '' %}
+      {% endif %}
+
+      <button data-target=".panel{{loop.index0}}" class="s1_benefits__nav--single panel-toggle {{activeClass}}">
+        <img src="{{single.icon.url}}" alt="{{single.icon.alt}}">
+        <span class="txt-20">{{single.title}}</span>
+      </button>
+    {% endfor %}
+  </nav>
+
+  <div class="panels">
+    {% for single in acf.s1_repeat %}
+      {% if loop.first %}
+        {% set activeClass2 = 'panel--active' %}
+      {% else %}
+        {% set activeClass2 = '' %}
+      {% endif %}
+
+      <article class="s1_benefits__panel panel{{loop.index0}} panel {{activeClass2}}">
+        <p class="txt-20">{{single.text}}</p>
+
+        <ul class="list">
+          {% for item in single.list %}
+            <li class="list--item">{{item.text}}</li>
+          {% endfor %}
+        </ul>
+
+        <p class="txt-20">{{single.text_2}}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% endblock %}

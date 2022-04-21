@@ -1,0 +1,16 @@
+<section class="magazine">
+  <div class="magazine__wrap">
+    <img class="magazine--img" src="{{options.magazine_img.url}}" alt="{{options.magazine_img.alt}}">
+
+    <div class="magazine__content">
+      <h3 class="magazine__content--title tit-26">{{options.magazine_title}}</h3>
+      <p class="magazine__content--text txt-18">{{options.magazine_text}}</p>
+    </div>
+
+    {% include "/templates/partial/button.twig" with {
+      button: options.magazine_button, 
+      class: 'btn-2', 
+      txt: 'txt-16',
+    } %}
+  </div>
+</section>

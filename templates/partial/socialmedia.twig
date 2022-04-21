@@ -1,0 +1,5 @@
+<div class="socialmedia">
+  {% for item in options.socialmedia %}
+    <a class="socialmedia--single" target="{{item.url.target}}" href="{{item.url.url}}">{{item.url.title}}</a>
+  {% endfor %}
+</div>

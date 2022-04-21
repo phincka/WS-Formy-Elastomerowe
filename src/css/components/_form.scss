@@ -1,0 +1,219 @@
+.contact{
+
+  &__bottom{
+    @include verticalCenter;
+
+    width: 100%;
+    margin-top: 3.4rem;
+
+    @include mobile{
+      flex-direction: column
+    }
+      &--privacy{
+        @include fontStyle(var(--white), 1.2rem, 400);
+        line-height: 1.8rem;
+
+        width: 96rem;
+
+        @include mobile{
+          width: 100%;
+          margin-bottom: 3rem;
+        }
+          label{
+            display: flex;
+            margin-bottom: .5rem;
+          }
+          input{
+            width: 1.3rem !important;
+            height: 1.3rem !important;
+            margin-right: 1.6rem;
+            border: .1rem solid var(--white);
+            
+            position: relative;
+            top: .1rem;
+            transition: .2s ease;
+              &:checked{
+                border-color: var(--pcolor);
+                background-color: var(--pcolor);
+              }
+          }
+          p{
+            font-weight: 600;
+          }
+          .wpcf7-list-item-label{
+            width: calc(100% - 3rem);
+          }
+          a{
+            text-decoration: underline;
+          }
+      }
+
+      .btn-1, .button-1{
+        margin-left: auto;
+        
+        @include mobile{
+          margin-right: 2rem;
+        }
+      }
+  }
+
+  &__left, &__right{
+    @include colStart;
+    gap: 2.5rem;
+  }
+
+  &__row{
+    width: 100%;
+    padding-bottom: 7.5rem;
+    border-bottom: .2rem solid var(--grey5);
+
+    @include mobile{
+      padding-bottom: 3.4rem;
+    }
+      &:last-child{
+        border: none;
+        padding-bottom: 0;
+      }
+  }
+  .grid2, .grid-nogap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include mobile{
+      grid-template-columns: 1fr;
+      margin-bottom: 2rem;
+    }
+  }
+  .grid2{
+    gap: 0 6.7rem;
+  }
+
+  &__column{
+    h3, p{
+      padding-right: 2rem;
+    }
+    h3{
+      font-weight: 400;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__single{
+    @include colStart;
+    gap: .5rem;
+
+    width: 100%;
+    position: relative;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &--label{
+        @include fontStyle(var(--white), 1.6rem, 600);
+        width: 100%;
+          span{
+            color: var(--red);
+          }
+      }
+
+      &--input, &--textarea{
+        border: .1rem solid var(--white);
+        padding: 2.1rem;
+
+        width: 100%;
+        transition: .2s;
+          &:focus, &:active {
+            outline: none;
+          }
+          &:valid, &:invalid, &::placeholder{
+            @include fontStyle(var(--white), 2rem, 400);
+          }
+          &:focus{
+            border-color: var(--pcolor);
+          }
+          &::selection{
+            color: var(--pcolor);
+          }
+      }
+      
+      &--textarea{
+        height: 21rem;
+        margin-bottom: 0;
+        resize: none;
+      }
+
+      &--radio, .wpcf7-list-item{
+        @include colStart;
+        gap: .5rem;
+        
+          label{
+            @include verticalCenter;
+            gap: .9rem;
+              span{
+                @include fontStyle(var(--white), 1.8rem, 400);
+              }
+          }
+          input[type=radio], input[type=checkbox]{
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--white);
+            border: .1rem solid #ddd;
+            border-radius: 100%;
+              &:checked{
+                border: .6rem solid var(--pcolor);
+              }
+          }
+      }
+      .wpcf7-list-item{
+        input[type=checkbox]{
+          border: .1rem solid #ddd;
+          background-color: var(--white);
+          border-radius: .5rem;
+
+          transition: .2s ease;
+            &:checked{
+              border: .1rem solid var(--pcolor);
+              background-color: var(--pcolor);
+            }
+        }
+      }
+
+      .wpcf7-not-valid{
+        border-color: #FF0000;
+      }
+      .wpcf7-not-valid-tip{
+        @include fontStyle(#FF0000, 1.4rem, 400);
+        font-size: 1.4rem !important;
+        margin-top: 1rem;
+
+        padding-left: 2.2rem;
+        position: relative;
+          &::before{
+            content: '';
+            width: 1.9rem;
+            height: 1.9rem;
+
+            background-image: url('../../assets/warning.svg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+          }
+      }
+  }
+}
+
+
+.formHidden{
+  display: none;
+}
+
+.dropRow{
+  padding-bottom: 2.8rem;
+}
+

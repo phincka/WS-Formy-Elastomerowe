@@ -1,0 +1,11 @@
+<section class="contactFormSection">
+  <header class="contactFormSection__header">
+    <h2 class="contactFormSection__header--title tit-35">{{options.projects_title}}</h2>
+
+  </header>
+  {% if options.contact_form %}
+    <div class="contactFormSection__form">
+      {{ fn('do_shortcode', '[contact-form-7 id="' ~ options.contact_form.ID  ~ '" title="' ~ options.contact_form.post_title ~ '"]') }}
+    </div>
+  {% endif %}
+</section>

@@ -1,0 +1,16 @@
+{% if header %}
+  <header class="sectionHeader {{class}}__header">
+    <div class="sectionHeader__content">
+      <h2 class="sectionHeader__content--title tit-40">{{header.title}}</h2>
+      <p class="sectionHeader__content--text txt-18">{{header.text}}</p>
+    </div>
+
+    <div class="sectionHeader__buttons">
+      {% include "/templates/partial/button.twig" with {
+        button: header.button, 
+        class: 'btn-4', 
+        txt: 'txt-16',
+      } %}
+    </div>
+  </header>
+{% endif %}

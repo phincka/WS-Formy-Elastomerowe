@@ -1,0 +1,145 @@
+.s1_eko{
+  display: flex;
+  position: relative;
+
+  @include mobile{
+    padding: 0 1.4rem;
+    flex-direction: column;
+  }
+    &__content{
+      width: 157.2rem;
+      margin: 0 auto;
+
+      padding-top: 20rem;
+      padding-bottom: 20rem;
+
+      @include mobile{
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        width: 100%;
+      }
+        &__wrap{
+          width: 70.8rem;
+
+          @include mobile{
+            width: 100%;
+          }
+        }
+        &--title{
+          margin-bottom: 4.6rem;
+        }
+    }
+    &--img{
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50%;
+      height: 100%;
+
+      max-width: 96rem;
+      max-height: 95.9rem;
+
+      @include mobile{
+        width: 100%;
+        height: auto;
+
+        position: relative;
+      }
+    }
+}
+
+.s2_eko{
+  display: flex;
+  position: relative;
+
+  @include mobile{
+    padding: 0 1.4rem;
+    flex-direction: column;
+  }
+    &__content{
+      width: 157.2rem;
+      margin: 0 auto;
+
+      padding-top: 20rem;
+      padding-bottom: 20rem;
+
+      @include mobile {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        width: 100%;
+      }
+        &__wrap{
+          width: 62.8rem;
+          margin-left: auto;
+
+          @include mobile{
+            width: 100%;
+          }
+        }
+        &--title{
+          margin-bottom: 4.6rem;
+        }
+    }
+
+    &__img{
+      position: absolute;
+      top: 0;
+      left: -.1rem;
+
+      width: 50%;
+      height: 100%;
+
+      max-width: 96rem;
+      max-height: 95.9rem;
+
+      border: .1rem solid var(--grey7);
+      box-shadow: 0 .3rem .6rem rgba(0, 0, 0, 0.16);
+
+      @include mobile{
+        width: 100%;
+        position: relative;
+        border: none;
+          img{
+            display: none;
+          }
+      }
+        .btn-2{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: 10;
+
+          @include mobile{
+            position: relative;
+          }
+        }
+    }
+    &--img{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+}
+
+.s3_eko{
+  width: 144rem;
+  margin: 14rem auto 11.1rem;
+
+  @include mobile{
+    width: 100%;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    padding: 0 1.4rem;
+  }
+    &__grid{
+      @include grid(2, 4rem 18rem);
+      margin-top: 6.5rem;
+
+      @include mobile{
+        grid-template-columns: 1fr;
+      }
+    }
+}

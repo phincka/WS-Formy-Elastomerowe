@@ -1,0 +1,19 @@
+<div class="exit popup">
+  <div class="popup__wrap">
+    <button class="popup__wrap--exit exit">
+      <span class="exit">Zamknij</span>
+      <img class="exit" src="{{asset('exit-white.svg')}}" alt="exit-white">
+    </button>
+
+    <header class="popup__wrap__header">
+      <h2 class="popup__wrap__header--title tit-40">Formularz kontaktowy</h2>
+      <p class="popup__wrap__header--text txt-22">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
+    </header>
+
+    <div class="popup__wrap__form">
+      {% if options.popupForm %}
+        {{ fn('do_shortcode', '[contact-form-7 id="' ~ options.popupForm.ID  ~ '" title="' ~ options.popupForm.post_title ~ '"]') }}
+      {% endif %}
+    </div>
+  </div>
+</div>

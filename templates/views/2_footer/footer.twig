@@ -1,0 +1,61 @@
+<footer class="footer" id="footer">
+  <a href="#top" class="footer--top">
+    {{the_svg('arrow')}}
+  </a>
+
+  <div class="footer__top">
+    <ul class="lang">
+      {% do fn('pll_the_languages', {
+        show_names: 0,
+        show_flags: 1,
+        hide_current: 1,
+      }) %}
+    </ul>
+
+    {% if options.header_logo_1.logo %}
+      {% set logo1 = options.header_logo_1 %}
+      <a class="footer__top__branding firstBranding" target="_blank" href="{{logo1.url}}">
+        <img loading="lazy" class="footer__top__branding--logo" src="{{logo1.logo.url}}" alt="{{logo1.logo.alt}}">
+      </a>
+    {% endif %}
+
+    {% if options.header_logo_2.logo %}
+      {% set logo2 = options.header_logo_2 %}
+      <a class="footer__top__branding" target="_blank" href="{{logo2.url}}">
+        <img loading="lazy" class="footer__top__branding--logo" src="{{logo2.logo.url}}" alt="{{logo2.logo.alt}}">
+      </a>
+    {% endif %}
+
+    {% if footer %}
+      <nav class="footer__top__nav">
+        <ul class="menu">
+          {% for item in footer.items  %}
+            <li class="{{ item.classes|join(' ') }} txt-18">
+              <a href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__bottom--text txt-15">{{fn('pll__', 'customer_info')}}</p>
+
+    <div class="footer__bottom__right">
+      {% include "/templates/partial/socialmedia.twig" %}
+
+      <a class="footer__bottom__right--text txt-15" rel="nofollow" href="https://www.websitestyle.pl/" target="blank">{{fn('pll__', 'ws_info')}}</a>
+    </div>
+  </div>
+
+  
+  {% include "/templates/partial/cookies.twig" %}
+
+  <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
+</footer>
+
+

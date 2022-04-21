@@ -1,0 +1,157 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/aside.twig" %}
+
+
+<section class="s1_homepage">
+  <div class="swiper s1_homepage__slider">
+    <div class="swiper-wrapper">
+      {% for slide in acf.s1_slider %}
+        <div class="swiper-slide s1_homepage__slider__slide">
+          {% include "templates/partial/image.twig" with {
+            img: slide.img,
+            class: 's1_homepage__slider__slide--img',
+          } %}
+          
+          <div class="s1_homepage__slider__slide__content">
+            <h2 class="s1_homepage__slider__slide__content--title tit-50">{{slide.title}}</h2>
+
+            {% include "/templates/partial/button.twig" with {
+              button: slide.button, 
+              class: 'btn-1', 
+              txt: 'txt-18',
+            } %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</section>
+
+<section class="s2_homepage">
+  <div class="s2_homepage__content">
+    <div class="s2_homepage__content__wrap">
+      <h2 class="s2_homepage__content--title tit-35">{{acf.s2_title}}</h2>
+      <p class="s2_homepage__content--text txt-20">{{acf.s2_text}}</p>
+    </div>
+  </div>
+
+  <div class="s2_homepage__img">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s2_img,
+      class: 's2_eko--img',
+    } %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s2_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+
+    <img class="s2_homepage--brand" src="{{asset('brand.svg')}}" alt="brand">
+  </div>
+</section>
+
+
+<section class="s3_homepage">
+  {% for item in acf.s3_repeat %}
+    <div class="s3_homepage__single">
+      {% include "templates/partial/image.twig" with {
+        img: item.img,
+        class: 's3_homepage__single--img',
+      } %}
+
+      <h3 class="s3_homepage__single--title tit-35">{{item.title}}</h3>
+
+      {% include "/templates/partial/button.twig" with {
+        button: item.button, 
+        class: 'btn-3', 
+        txt: 'txt-18',
+      } %}
+    </div>
+  {% endfor %}
+</section>
+
+
+<section class="s4_homepage">
+  <div class="s4_homepage__wrap">
+    <header class="s4_homepage__header">
+      <h2 class="s4_homepage__header--title tit-35">{{acf.s4_title}}</h2>
+
+      {% include "/templates/partial/button.twig" with {
+        button: acf.s4_button, 
+        class: 'btn-1', 
+        txt: 'txt-18',
+      } %}
+    </header>
+
+    <div class="s4_homepage__grid">
+      {% for single in acf.s4_repeat %}
+        <div class="s4_homepage__grid__single">
+          <img class="s4_homepage__grid__single--icon" src="{{single.icon.url}}" alt="{{single.icon.alt}}">
+          <h3 class="s4_homepage__grid__single--title txt-20">{{single.title}}</h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="s5_homepage">
+  <div class="s5_homepage__grid">
+    {% for post in posts|slice(0, 2) %}
+      <a class="s1_projects__single" href="{{get_permalink(post.ID)}}">
+        <img class="s1_projects__single--img" src="{{get_the_post_thumbnail_url(post.ID)}}" alt="">
+      </a>
+    {% endfor %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s5_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+
+    {% for post in posts|slice(2) %}
+      <a class="s1_projects__single" href="{{get_permalink(post.ID)}}">
+        <img class="s1_projects__single--img" src="{{get_the_post_thumbnail_url(post.ID)}}" alt="">
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+
+<section class="s6_homepage">
+  <div class="s6_homepage__wrap">
+    <div class="s6_homepage__content">
+      <h2 class="s6_homepage__content--title tit-35">{{acf.s6_title}}</h2>
+      <p class="s6_homepage__content--text txt-20">{{acf.s6_text}}</p>
+
+      {% include "/templates/partial/button.twig" with {
+        button: acf.s6_button_2, 
+        class: 'btn-1', 
+        txt: 'txt-18',
+      } %}
+    </div>
+  
+    
+  </div>
+
+  <div class="s6_homepage__img">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s6_img,
+      class: 's6_homepage__img--img',
+    } %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s6_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% endblock %}

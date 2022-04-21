@@ -1,0 +1,78 @@
+.page-template-template_contact{
+  .pageHeader{
+    &--title{
+      padding-left: 6rem;
+
+      @include mobile{
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.s1_contact{
+  margin: 0 auto 4rem;
+
+  position: relative;
+  z-index: 10;
+    @include mobile{
+      padding: 0 1.4rem;
+    }
+
+    &__wrap{
+      width: 157.2rem;
+      margin: 0 auto 0;
+
+      display: flex;
+      align-items: flex-start;
+
+      position: relative;
+      z-index: 10;
+        @include mobile{
+          width: 100%;
+          padding-top: 0;
+        }
+
+        &--img{
+          width: calc(100% - 76.1rem);
+          max-height: 50.8rem;
+          margin-left: auto;
+
+          @include mobile{
+            display: none;
+          }
+        }
+    }
+
+
+
+    &__content{
+      @include colStart;
+      
+      width: 69.5rem;
+      margin-top: 14.7rem;
+      padding-left: 6.5rem;
+
+      @include mobile{
+        width: 100%;
+        padding-left: 0;
+        margin-top: 4rem;
+      }
+        &__contact{
+          @include colStart;
+          gap: 3.6rem;
+            &__single{
+              @include colStart;
+                &--title{
+                  font-weight: 700;
+                }
+                .mailForms{
+                  span{
+                    font-weight: 700 !important;
+                  }
+                }
+            }
+        }
+    }
+}
+

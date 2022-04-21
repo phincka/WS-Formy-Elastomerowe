@@ -1,0 +1,47 @@
+{% if posts.pagination.pages is not empty %}
+  <nav class="pagination-block">
+    {# First #}
+    {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
+      <a class="first btn" href="{{ posts.pagination.pages|first.link }}">First</a>
+    {% else %}
+        <button class="first btn disabled" disabled>First</button>
+    {% endif %}
+
+    {# Previous #}
+    {% if posts.pagination.prev %}
+      <a class="prev btn" href="{{ posts.pagination.prev.link }}">{{fn('the_svg', 'leftArrow')}}</a>
+    {% else %}
+      <button class="prev btn disabled" disabled>{{fn('the_svg', 'leftArrow')}}</button>
+    {% endif %}
+
+
+    <ul class="pagination">
+      {# Pages #}
+      {% for page in posts.pagination.pages %}
+        {% if page.link %}
+          <li>
+            <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+          </li>
+        {% else %}
+          <li class="current">
+            <span class="{{ page.class }}">{{ page.title }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {# Next #}
+    {% if posts.pagination.next %}
+        <a class="next btn" href="{{ posts.pagination.next.link }}">{{fn('the_svg', 'leftArrow')}}</a>
+    {% else %}
+        <button class="next btn disabled" disabled>{{fn('the_svg', 'leftArrow')}}</button>
+    {% endif %}
+
+    {# Last #}
+    {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
+        <a class="last btn" href="{{ posts.pagination.pages|last.link }}">Last</a>
+    {% else %}
+        <button class="last btn disabled" disabled>Last</button>
+    {% endif %}
+    </nav>
+{% endif %}

@@ -1,0 +1,64 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" with {title: acf.ph_title} %}
+
+
+<section class="s1_eko">
+  <div class="s1_eko__content">
+    <div class="s1_eko__content__wrap">
+      <h2 class="s1_eko__content--title tit-35">{{acf.s1_title}}</h2>
+      <p class="s1_eko__content--text txt-20">{{acf.s1_text}}</p>
+    </div>
+  </div>
+
+  {% include "templates/partial/image.twig" with {
+    img: acf.s1_img,
+    class: 's1_eko--img',
+  } %}
+</section>
+
+<section class="s2_eko">
+  <div class="s2_eko__content">
+    <div class="s2_eko__content__wrap">
+      <h2 class="s2_eko__content--title tit-35">{{acf.s2_title}}</h2>
+      <p class="s2_eko__content--text txt-20">{{acf.s2_text}}</p>
+    </div>
+  </div>
+
+  
+  <div class="s2_eko__img">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s2_img,
+      class: 's2_eko--img',
+    } %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s2_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+</section>
+
+<section class="s3_eko">
+  <h2 class="s3_eko--title tit-35">{{acf.s3_title}}</h2>
+
+  <div class="s3_eko__grid">
+    <ul class="list">
+      {% for item in acf.s3_repeat %}
+        <li class="list--item">{{item.text}}</li>
+      {% endfor %}
+    </ul>
+
+    <ul class="list">
+      {% for item in acf.s3_repeat_2 %}
+        <li class="list--item">{{item.text}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% endblock %}

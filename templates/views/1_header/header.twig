@@ -1,0 +1,78 @@
+{% if menu %}
+
+	<!-- START LOADER HTML -->
+	<div class="fullpage-loader">
+		<div class="fullpage-loader__logo">
+			<img loading="lazy" src="{{options.og_img}}" alt="loader">
+		</div>
+	</div>
+	<!-- END LOADER HTML -->
+
+
+	<header class="header">
+		<div class="header__mobileBelt">
+			<a class="header__mobileBelt__branding" href="{{fn('pll_home_url')}}">
+				<img loading="lazy" class="header__mobileBelt__branding--logo" src="{{options.logo['url']}}" alt="{{options.logo['alt']}}">
+			</a>
+			<!-- Opem Nav __ MOBILE -->
+			<div class="header__mobileBelt__menuButton menuButton"> 
+				<svg class="" viewBox="0 0 100 100" >
+					<path d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"/>
+					<path d="m 30,50 h 40"/>
+					<path d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"/>
+				</svg>
+			</div>
+		</div>
+
+		
+		<div class="header__main">
+
+			<ul class="lang">
+				{% do fn('pll_the_languages', {
+					show_names: 0,
+					show_flags: 1,
+					hide_current: 1,
+				}) %}
+			</ul>
+
+			{% if options.header_logo_1.logo %}
+				{% set logo1 = options.header_logo_1 %}
+				<a class="header__main__branding firstBranding" target="_blank" href="{{logo1.url}}">
+					<img loading="lazy" class="header__main__branding--logo" src="{{logo1.logo.url}}" alt="{{logo1.logo.alt}}">
+				</a>
+			{% endif %}
+
+			{% if options.header_logo_2.logo %}
+				{% set logo2 = options.header_logo_2 %}
+				<a class="header__main__branding" target="_blank" href="{{logo2.url}}">
+					<img loading="lazy" class="header__main__branding--logo" src="{{logo2.logo.url}}" alt="{{logo2.logo.alt}}">
+				</a>
+			{% endif %}
+		
+
+			<nav class="header__main__nav">  
+				<ul class="menu">
+					{% for item in menu.items %}
+						<li class="{{ item.classes|join(' ') }} txt-18">
+							{% if item.link %}
+								<a href="{{ item.link }}">
+									{{ item.title }}
+								</a>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+
+			{% if options.header_button %}
+				{% set headerButton = options.header_button %}
+				<a class="header__main__button" target="{{headerButton.url.target}}" href="{{headerButton.url.url}}">
+					<span class="header__main__button--text txt-18">{{headerButton.url.title}}</span>
+					<img class="header__main__button--img" src="{{headerButton.icon.url}}" alt="{{headerButton.icon.alt}}">
+				</a>
+			{% endif %}
+		</div>
+	</header>
+
+
+{% endif %}

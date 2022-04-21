@@ -1,0 +1,42 @@
+
+/* Template variables */
+@import './variables';
+
+
+/* Libraries */
+@import './lib';
+
+
+/* Components */
+@import 'components/cookies';
+@import 'components/loader';
+// @import 'components/singlePost';
+// @import 'components/breadcrumbs';
+@import 'components/pageHeader';
+// @import 'components/sectionHeader';
+@import 'components/form.scss';
+// @import 'components/magazine.scss';
+// @import 'components/blocks.scss';
+@import 'components/aside.scss';
+@import 'components/socialmedia.scss';
+@import 'components/contactForms.scss';
+@import 'components/contactFormSection.scss';
+@import 'components/projects.scss';
+// @import 'components/popup.scss';
+
+
+
+/* Views */
+@import './views/1_header/header';
+@import './views/2_footer/footer';
+@import './views/benefits/benefits';
+@import './views/homepage/homepage';
+
+@import './views/contact/contact';
+@import './views/eko/eko';
+@import './views/service/service';
+@import './views/universal/universal';
+@import './views/project/project';
+@import './views/project/projects';
+
+

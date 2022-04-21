@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" with {title: acf.ph_title} %}
+
+
+<section class="s1_contact">
+  <div class="s1_contact__wrap">
+    <div class="s1_contact__content">
+      <div class="s1_contact__content__contact">
+        {% for item in acf.s1_repeat %}
+          <div class="s1_contact__content__contact__single">
+            <h3 class="s1_contact__content__contact__single--title txt-25">{{item.title}}</h3>
+            {% include "/templates/partial/contactForms.twig" with {contactForms: item.contact_forms} %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "templates/partial/image.twig" with {
+      img: acf.s1_img,
+      class: 's1_contact__wrap--img',
+    } %}
+  </div>
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% endblock %}

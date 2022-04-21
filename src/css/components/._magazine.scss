@@ -1,0 +1,67 @@
+.magazine{
+  width: 100%;
+  background-color: var(--pcolor);
+  padding: 7rem 0 6.4rem;
+  margin-top: 5.5rem;
+
+  @include mobile{
+    margin-top: 0;
+    padding: 5rem 0;
+  }
+    &__wrap{
+      @include verticalCenter;
+
+      width: 131.1rem;
+      margin: 0 auto;
+
+      position: relative;
+
+      @include mobile{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1.4rem;
+      }
+    }
+
+    &--img{
+      width: 16.8rem;
+      height: 23.8rem;
+      object-fit: contain;
+
+      position: absolute;
+      left: 0.2rem;
+      bottom: -4.9rem;
+
+      @include mobile{
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto
+      }
+    }
+    &__content{
+      @include colStart;
+      margin-left: 20rem;
+
+      @include mobile{
+        margin-left: 0;
+        margin-top: 3.2rem;
+      }
+        &--title, &--text{
+          color: var(--white);
+          
+          @include mobile{
+            text-align: center;
+          }
+        }
+    }
+    .btn-2{
+      margin-left: auto;
+      
+      @include mobile{
+        margin: 2rem auto 0;
+      } 
+    }
+}

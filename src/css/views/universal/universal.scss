@@ -1,0 +1,29 @@
+.s1_universal {
+  width: 128rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+  margin-bottom: 11.1rem;
+  
+  @include mobile{
+    width: 100%;
+    padding: 0 1.4rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+    &__header {
+      margin-bottom: 9.3rem;
+      
+      @include mobile{
+        margin-bottom: 5rem;
+      }
+    }
+
+    &--editor {
+      @include wysiwyg(2rem, var(--pcolor));
+      margin: 0 auto;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+}

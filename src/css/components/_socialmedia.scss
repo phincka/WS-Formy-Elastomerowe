@@ -1,0 +1,32 @@
+.socialmedia{
+  @include verticalCenter;
+  gap: 4.2rem;
+  
+    &--single{
+      position: relative;
+      font-size: 1.4rem;
+      transition: .2s;
+        &::before{
+          content: '';
+          width: 2rem;
+          height: 0.1rem;
+          background-color: var(--white);
+          
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto 0;
+          left: -3.1rem;
+        }
+
+        &:first-child{
+          &::before{
+            display: none;
+          }
+        }
+
+        &:hover{
+          color: var(--pcolor);
+        }
+    }
+}

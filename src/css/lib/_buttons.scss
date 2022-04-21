@@ -1,0 +1,152 @@
+.btn-1{
+  @include verticalCenter;
+  gap: 4rem;
+  transition: .2s;
+
+  position: relative;
+    &--text{
+      text-transform: uppercase;
+      transition: .2s;
+      font-weight: 400;
+    }
+
+    &--icon{
+      @include center;
+
+      width: 8rem;
+      height: 8rem;
+      border-radius: 100%;
+      position: relative;
+        &::before{
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          border: .1rem solid var(--pcolor);
+
+          position: absolute;
+          transition: .2s;
+        }
+
+        svg{
+          transform: rotate(-90deg);
+        }
+    }
+
+    &:hover{
+      .btn-1--text{
+        color: var(--pcolor);
+      }
+      .btn-1--icon{
+        &::before{
+          transform: scale(1.4);
+        }
+      }
+    }
+}
+
+
+.btn-2{
+  @include colStart;
+  gap: 5.2rem;
+  
+  width: 40rem;
+  min-height: 40rem;
+  padding: 8rem 7rem 5.8rem;
+  background-color: var(--pcolor);
+
+  transition: .2s;
+  position: relative;
+
+  @include mobile{
+    width: 100%;
+    min-height: 33rem;
+    padding: 4rem 5rem 4.8rem;
+  }
+    &--text{
+      text-transform: uppercase;
+      transition: .2s;
+
+      color: var(--white) !important;
+      font-weight: 600 !important;
+    }
+
+    &--icon{
+      @include center;
+
+      width: 8rem;
+      height: 8rem;
+      border-radius: 100%;
+      position: relative;
+      transition: .2s;
+        &::before{
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          border: .1rem solid var(--white);
+
+          position: absolute;
+          transition: .2s;
+        }
+    }
+
+    &:hover{
+      .btn-2--icon{
+        // transform: rotate(-90deg);
+          &::before{
+            transform: scale(1.4);
+          }
+      }
+    }
+}
+
+
+.btn-3{
+  @include verticalCenter;
+  flex-direction: row-reverse;
+  gap: .5rem;
+  transition: .2s;
+
+  position: relative;
+    &--text{
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: .2s;
+      opacity: 0;
+    }
+
+    &--icon{
+      @include center;
+
+      width: 8rem;
+      height: 8rem;
+      border-radius: 100%;
+      position: relative;
+        &::before{
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          border: .1rem solid var(--pcolor);
+
+          position: absolute;
+          transition: .2s;
+        }
+
+        svg{
+          transform: rotate(-90deg);
+        }
+    }
+
+    &:hover{
+      .btn-3--text{
+        opacity: 1;
+      }
+      .btn-3--icon{
+        &::before{
+          transform: scale(1.4);
+        }
+      }
+    }
+}

@@ -1,0 +1,204 @@
+.footer{
+  background-color: var(--blue6);
+
+  position: relative;
+  z-index: 90;
+
+  padding-top: 6.3rem;
+  padding-bottom: 3rem;
+  
+  @include mobile{
+    padding: 10rem 1.4rem 4rem;
+  }
+    &--top{
+      @include center;
+
+      width: 8rem;
+      height: 8rem;
+      border-radius: 100%;
+
+      position: absolute;
+      bottom: 5.3rem;
+      right: 3.9rem;
+
+      @include mobile{
+        bottom: auto;
+        top: 2rem;
+      }
+        &::before{
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          border: .1rem solid var(--pcolor);
+
+          position: absolute;
+          transition: .2s;
+        }
+
+        svg{
+          transform: rotate(180deg);
+        }
+
+        &:hover{
+          &::before{
+            transform: scale(1.4);
+          }
+        }
+    }
+    
+    &__top{
+      @include verticalCenter;
+      margin-bottom: 8.1rem;
+
+      width: 192rem;
+      margin: 0 auto;
+
+      padding: 0 16rem 0 6.4rem;
+
+      @include mobile{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+      }
+        &__branding{
+          width: 19.2rem;
+          max-height: 3.2rem;
+
+          margin-left: 1.2rem;
+
+          transition: .2s;
+
+          @include mobile{
+            width: 24rem;
+            margin-left: 0;
+          }
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              filter: brightness(0) invert(1);
+              transition: .2s;
+            }
+
+            &:hover {
+              img {
+                filter: brightness(1) invert(0);
+              }
+            }
+        }
+        .firstBranding{
+          margin-left: 7rem;
+
+          @include mobile{
+            margin-left: 0;
+            margin-bottom: 2rem;
+          }
+        }
+
+        &__nav{
+          margin-left: auto;
+
+          @include mobile{
+            margin-left: 0;
+
+            margin-top: 4rem;
+          }
+            & >.menu{
+              display: flex;
+              align-items: center;
+              gap: 4.3rem;
+
+              list-style: none;
+              position: relative;
+
+              @include mobile{
+                flex-direction: column;
+                gap: 2rem;
+              }
+                & > .menu-item{
+                  @include center;
+
+                  text-transform: uppercase;
+                  font-weight: 600;
+                  transition: .2s;
+                  position: relative; 
+                  z-index: 90;
+                    @include mobile{
+                      font-size: 2.4rem;
+                    }
+
+                    &:last-child{
+                      margin-left: 4.9rem;
+
+                      @include mobile{
+                        margin-left: 0;
+                      }
+                        &::before{
+                          content: '/';
+
+                          position: absolute;
+                          top: 0;
+                          bottom: 0;
+                          left: -5.2rem;
+                          margin: auto 0;
+
+                          @include mobile{
+                            display: none;
+                          }
+                        }
+                    }
+                    &:hover{
+                      color: var(--pcolor);
+                    }
+                }
+
+
+                & >.active{
+                  color: var(--pcolor);
+                }    
+            }
+        }
+
+    }
+
+    &__bottom{
+      @include flexLine;
+
+      width: 192rem;
+      margin: 4rem auto 0;
+      padding-left: 16rem;
+      padding-right: 16rem;
+
+      @include mobile{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.6rem;
+        padding: 0;
+      }
+       
+        &--text{
+          width: 112.4rem;
+
+          @include mobile{
+            width: 100%;
+          }
+        }
+
+        &__right{
+          @include colStart;
+          align-items: flex-end;
+          gap: 3.7rem;
+
+          width: calc(100% - 112.4rem);
+
+          @include mobile{
+            width: 100%;
+          }
+        }
+    }
+}
+

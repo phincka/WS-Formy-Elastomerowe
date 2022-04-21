@@ -1,0 +1,35 @@
+.sectionHeader{
+  @include flexLine('center');
+
+  @include mobile{ 
+    flex-direction: column
+  }
+    &__content{
+      @include colStart;
+      width: calc(100% - 35rem);
+
+      @include mobile{ 
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+        &--title{
+          color: var(--black);
+        }
+        &--text{
+          color: var(--grey3); 
+          margin-top: 0.4rem;
+        }
+    }
+
+    &__buttons{
+      @include flexLine('center');
+      justify-content: flex-end;
+      gap: 1rem;
+      width: 35rem;
+
+      @include mobile{ 
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+}

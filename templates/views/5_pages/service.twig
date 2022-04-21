@@ -1,0 +1,96 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/aside.twig" %}
+
+
+<section class="s1_service">
+  <div class="s1_service__single">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s1_img,
+      class: 's1_service__single--img',
+    } %}
+
+    <div class="s1_service__single__content">
+      <h2 class="s1_service__single__content--title tit-50">{{acf.s1_title}}</h2>
+      <p class="s1_service__single__content--text txt-20">{{acf.s1_text}}</p>
+
+      {% include "/templates/partial/button.twig" with {
+        button: acf.s1_button, 
+        class: 'btn-1', 
+        txt: 'txt-18',
+      } %}
+    </div>
+
+    <nav class="s1_service__single__menu">
+      {% for item in acf.s1_menu %}
+        <a class="s1_service__single__menu__single" href="{{get_permalink(item.post.ID)}}">
+          <img class="s1_service__single__menu__single--img" src="{{get_the_post_thumbnail_url(item.post.ID)}}" alt="{{item.post.post_title}}">
+          <h3 class="s1_service__single__menu__single--title txt-20">{{item.post.post_title}}</h3>
+        </a>
+      {% endfor %}
+    </nav>
+  </div>
+</section>
+
+
+<section class="s2_service">
+  {% include "templates/partial/image.twig" with {
+    img: acf.s2_img,
+    class: 's2_service--img',
+  } %}
+
+  <div class="s2_service__content">
+    <p class="s2_service__content--text txt-20">{{acf.s2_text}}</p>
+
+    <ul class="list">
+      {% for item in acf.s2_repeat %}
+        <li class="list--item">{{item.text}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+<section class="s3_service">
+  <div class="s3_service__content">
+    <div class="s3_service__content__wrap">
+      <h2 class="s3_service__content--title tit-35">{{acf.s3_title}}</h2>
+      <p class="s3_service__content--text txt-20">{{acf.s3_text}}</p>
+
+      {% if acf.s3_list_chbox %}
+        <ul class="list grid-2">
+          {% for item in acf.s3_repeat %}
+            <li class="list--item">{{item.text}}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul class="list">
+          {% for item in acf.s3_repeat %}
+            <li class="list--item">{{item.text}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="s3_service__img">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s3_img,
+      class: 's2_eko--img',
+    } %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s3_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% include "/templates/partial/projects.twig" %}
+{% endblock %}

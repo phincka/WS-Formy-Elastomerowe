@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+{% block content %}
+
+
+<section class="s1_form">
+  <header class="s1_form__header">
+    <h1 class="s1_form__header--title tit-52">{{acf.title}}</h1>
+    <p class="s1_form__header--text txt-22">{{acf.text}}</p>
+  </header>
+
+  <div class="s1_form__form">
+    {% filter shortcodes %}
+      [contact-form-7 id="5" title="Formularz"]
+    {% endfilter %}
+
+    <div class="contact__thankYou">
+      <img class="contact__thankYou--img" src="{{asset('accept.svg')}}" alt="accept">
+
+      <h3 class="contact__thankYou--title tit-40">{{fn('pll__', 'thankyou_title')}}</h3>
+      <p class="contact__thankYou--text txt-22">{{fn('pll__', 'thankyou_text')}}<br> <span id="userMail"></span></p>
+
+      <a href="{{pll_home_url()}}" class="btn-3 txt-16" style="color: var(--grey)">
+        <span class="btn-3--txt">{{fn('pll__', 'thankyou_home_button')}}</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="s1_form--text txt-18">{{acf.text2}}</p>
+</section>
+
+
+{% endblock %}

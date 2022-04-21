@@ -1,0 +1,20 @@
+<div class="contactForms">
+  {% for item in contactForms %}
+    {% if item.acf_fc_layout == 'mail' %}
+      <a href="mailto:{{extract_email(item.mail)}}" class="contactForms__single mailForms tit-30">
+        {# <img class="contactForms__single--icon" src="{{asset('mail.svg')}}"> #}
+        <span class="contactForms__single--text">{{item.mail}}</span>
+      </a>
+    {% elseif item.acf_fc_layout == 'address' %}
+      <a href="{{item.url}}" class="contactForms__single txt-20">
+        {# <img class="contactForms__single--icon" src="{{asset('mail.svg')}}"> #}
+        <span class="contactForms__single--text">{{item.text}}</span>
+      </a>
+    {% else %}
+      <a href="tel:{{extract_phoneNumber(item.tel)}}" class="contactForms__single txt-20">
+        {# <img class="contactForms__single--icon" src="{{asset('tel.svg')}}"> #}
+        <span class="contactForms__single--text">{{item.tel}}</span>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>

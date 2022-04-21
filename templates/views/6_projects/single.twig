@@ -1,0 +1,146 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/aside.twig" %}
+
+{% if acf.color_version %}
+  {% set color = 'light' %}
+{% else %}
+  {% set color = 'dark' %}
+{% endif %}
+
+<section class="s1_project">
+  <header class="s1_project__header">
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s1_button_0, 
+      class: 'btn-1', 
+      txt: 'txt-18',
+    } %}
+
+    <h1 class="s1_project__header--title tit-50">{{acf.s1_title}}</h1>
+  </header>
+
+  <div class="s1_project__img {{color}}">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s1_img_1,
+      class: 's1_project__img--img',
+    } %}
+ 
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s1_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+</section>
+
+
+<section class="s2_project">
+  {% include "templates/partial/image.twig" with {
+    img: acf.s2_img,
+    class: 's2_project--img',
+  } %}
+
+  <div class="s2_project__content {{color}}">
+    <p class="s2_project__content--text txt-20">{{acf.s2_text}}</p>
+  
+    {% include "templates/partial/image.twig" with {
+      img: acf.s2_img_2,
+      class: 's2_project__content--img',
+    } %}
+  </div>
+</section>
+
+
+<section class="s3_project {{color}}">
+  <div class="s3_project__content">
+    <h2 class="s3_project__content--title tit-35">{{acf.s3_title}}</h2>
+    <p class="s3_project__content--text txt-20">{{acf.s3_text}}</p>
+  
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s3_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+
+  {% include "templates/partial/image.twig" with {
+    img: acf.s3_img,
+    class: 's3_project--img',
+  } %}
+</section>
+
+
+<section class="s4_project">
+  <div class="swiper s4_project__slider gallery">
+    <div class="swiper-wrapper">
+      {% for slide in acf.s4_repeat %}
+        <a data-lbxp href="{{slide.img.url}}" class="swiper-slide s4_project__slider__slide">
+          {% include "templates/partial/image.twig" with {
+            img: slide.img,
+            class: 's4_project__slider__slide--img',
+          } %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="s4_project__buttons">
+    <div class="next">{{the_svg('arrow')}}</div>
+    <div class="prev">{{the_svg('arrow')}}</div>
+  </div>
+</section>
+
+
+<section class="s5_project {{color}}">
+  {% include "/templates/partial/pageHeader.twig" with {title: 'Film'} %}
+
+  {% if acf.s5_video %}
+    <div class="s5_project--video" data-url="{{acf.s5_video}}">
+      <div class="wrapper">
+        <div id="ytplayer"></div>
+        <img id="image-overlay" alt="alt text">
+        <button id="play"></button>
+      </div> 
+    </div>
+  {% endif %}
+
+
+  <div class="s5_project__content">
+    <h2 class="s5_project__content--title tit-35">{{acf.s5_title}}</h2>
+
+    <div class="s5_project__content__grid txt-20">
+      <p>{{acf.s5_text}}</p>
+      <p>{{acf.s5_text_2}}</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="s6_project">
+  <div class="s6_project__content">
+    <div class="s6_project__content__wrap">
+      <h2 class="s6_project__content--title tit-35">{{acf.s6_title}}</h2>
+      <p class="s6_project__content--text txt-20">{{acf.s6_text}}</p>
+    </div>
+  </div>
+
+  
+  <div class="s6_project__img">
+    {% include "templates/partial/image.twig" with {
+      img: acf.s6_img,
+      class: 's6_project--img',
+    } %}
+
+    {% include "/templates/partial/button.twig" with {
+      button: acf.s6_button, 
+      class: 'btn-2', 
+      txt: 'tit-50',
+    } %}
+  </div>
+</section>
+
+
+{% include "/templates/partial/contactFormSection.twig" %}
+{% include "/templates/partial/projects.twig" %}
+{% endblock %}

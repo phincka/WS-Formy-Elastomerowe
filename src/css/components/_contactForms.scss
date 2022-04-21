@@ -1,0 +1,12 @@
+.contactForms{
+  @include colStart;
+  gap: 1.6rem;
+    &__single{
+      @include verticalCenter;
+      gap: 1.4rem;
+        &--icon{
+          width: 3rem;
+          height: 3rem;
+        }
+    }
+}

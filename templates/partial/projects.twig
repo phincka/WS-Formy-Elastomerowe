@@ -1,0 +1,24 @@
+<header class="pageHeader projectSection">
+ <div class="pageHeader__wrap projectSection__wrap">
+  <h1 class="pageHeader--title tit-50 projectSection__wrap--title">{{options.project_title}}</h1>
+    
+    {% include "/templates/partial/button.twig" with {
+      button: options.projects_button, 
+      class: 'btn-1', 
+      txt: 'txt-18',
+    } %}
+  </div>
+
+  <a href="#bottom" class="pageHeader--bottom">{{the_svg('arrow')}}</a>
+  <div id="bottom"></div>
+</header> 
+
+<section class="projects">
+  <div class="projects__grid">
+    {% for post in posts %}
+      <a class="projects__single" href="{{get_permalink(post.ID)}}">
+        <img class="projects__single--img" src="{{get_the_post_thumbnail_url(post.ID)}}" alt="">
+      </a>
+    {% endfor %}
+  </div>
+</section>
